@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav class="row" style="background-color: #08AEEA; background-image: linear-gradient(270deg, #08AEEA 0%, #2AF598 50%);">
+    <h1 class="col-md-3 text-center">Weather App</h1>
+</nav>
+<br />
+<br />
+<center class="row">
+    <form method="post" class="col-md-6 col-md-offset-3">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" class="form-control" name="requestedCity" placeholder="Search">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </div>
+    </form>
+</center>
+<div class="row">
+    {% if temp %}
+    <div class="col-md-6 col-md-offset-3">
+        <h3>City : {{city}} </h1>
+            <h4>{{status}} </h4>
+            <h4>Temperature : {{temp}} </h5>
+                <h5>Pressure : {{pressure}} </h5>
+                <h5>Humidity : {{humidity}} </h5>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
